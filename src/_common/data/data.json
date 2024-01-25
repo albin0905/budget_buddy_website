@@ -1,0 +1,78 @@
+[
+  {
+    "id": 1,
+    "name": "Automobile",
+    "expenses": [
+      {
+        "id":1,
+        "name": "Tank",
+        "price":200,
+        "description": "Auto tanken"
+      },
+      {
+        "id":2,
+        "name": "Reifen",
+        "price":1950,
+        "description": "Reifen wechseln"
+      },
+      {
+        "id":3,
+        "name": "BMW M5-ÖL",
+        "price": 100,
+        "description": "Öl wechsel"
+      },
+      {
+        "id":4,
+        "name": "BMW M5 CS-ÖL",
+        "price": 100,
+        "description": "Öl wechsel"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Haushalt",
+    "expenses": [
+      {
+        "id":1,
+        "name": "Geschirr",
+        "price":50,
+        "description": "Neues Geshirr gekauft"
+      },{
+        "id":2,
+        "name": "Staubsauger",
+        "price":100,
+        "description": "Reperatur des Staubsaugers"
+      },{
+        "id":3,
+        "name": "Strom",
+        "price":250,
+        "description": "Stromkosten"
+      },{
+        "id":4,
+        "name": "Müllabfuhr",
+        "price":50,
+        "description": "Müllabfuhrkosten"
+      }
+
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Kleidung",
+    "expenses": [
+      {
+        "id":1,
+        "name": "KMN Pulllover",
+        "price":50,
+        "description": "KMN Baby"
+      },
+      {
+        "id":2,
+        "name": "KMN Pulllover",
+        "price":50,
+        "description": "KMN Baby"
+      }
+    ]
+  }
+]
