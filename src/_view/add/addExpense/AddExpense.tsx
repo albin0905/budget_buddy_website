@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { IExpense } from '../../../_common/models/IExpense';
 import { useCategoryContext } from '../../../_common/context/CategoryContext';
+import 'bootstrap/dist/css/bootstrap.css';
 
 const AddExpense: React.FC = () => {
     const { selectedCategory, addCategory, addExpense, getNextIndex } = useCategoryContext();
@@ -25,7 +26,6 @@ const AddExpense: React.FC = () => {
             description: expenseDescription,
         };
 
-        // Add the new expense to the selected category
         const updatedCategories = selectedCategory.map((category) => {
             if (category.id === selectedCategoryId) {
                 return {
@@ -36,56 +36,67 @@ const AddExpense: React.FC = () => {
             return category;
         });
 
-        // Update the category state
         addCategory(updatedCategories);
-        // Update the expenses state
+        //aktualisiert
         addExpense(selectedCategoryId, newExpense);
         navigate('/categoryDashboard');
     };
 
     return (
-        <div>
-            <h2>Ausgabe hinzufügen</h2>
-            <form onSubmit={handleAddExpense}>
-                <label>
-                    Name:
-                    <input
-                        type="text"
-                        value={expenseName}
-                        onChange={(e) => setExpenseName(e.target.value)}
-                    />
-                </label>
-                <label>
-                    Preis:
-                    <input
-                        type="number"
-                        value={expensePrice}
-                        onChange={(e) => setExpensePrice(parseFloat(e.target.value))}
-                    />
-                </label>
-                <label>
-                    Beschreibung:
-                    <input
-                        type="text"
-                        value={expenseDescription}
-                        onChange={(e) => setExpenseDescription(e.target.value)}
-                    />
-                </label>
-                <label>
-                    Kategorie:
-                    <select
-                        value={selectedCategoryId}
-                        onChange={(e) => setSelectedCategoryId(parseInt(e.target.value, 10))}
-                    >
-                        {selectedCategory.map(category => (
-                            <option key={category.id} value={category.id}>
-                                {category.name}
-                            </option>
-                        ))}
-                    </select>
-                </label>
-                <button type="submit">+</button>
-            </form>
+        <div className="container mt-4">
+            <div className="row">
+                <div className="col">
+                    <h2>Ausgabe hinzufügen</h2>
+                    <form onSubmit={handleAddExpense}>
+                        <div className="form-group">
+                            <label htmlFor="expenseName">Name:</label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                id="expenseName"
+                                value={expenseName}
+                                onChange={(e) => setExpenseName(e.target.value)}
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="expensePrice">Preis:</label>
+                            <input
+                                type="number"
+                                className="form-control"
+                                id="expensePrice"
+                                value={expensePrice}
+                                onChange={(e) => setExpensePrice(parseFloat(e.target.value))}
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="expenseDescription">Beschreibung:</label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                id="expenseDescription"
+                                value={expenseDescription}
+                                onChange={(e) => setExpenseDescription(e.target.value)}
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="selectedCategory">Kategorie:</label>
+                            <select
+                                className="form-control"
+                                id="selectedCategory"
+                                value={selectedCategoryId}
+                                onChange={(e) => setSelectedCategoryId(parseInt(e.target.value, 10))}
+                            >
+                                {selectedCategory.map(category => (
+                                    <option key={category.id} value={category.id}>
+                                        {category.name}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
+                        <button type="submit" className="btn btn-primary">+</button>
+                    </form>
+                </div>
+            </div>
         </div>
     );
 };
