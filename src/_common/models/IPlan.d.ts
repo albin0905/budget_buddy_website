@@ -1,7 +1,6 @@
-// füg die restlichen Attribute hinzu...
-
 export interface IPlan {
-    id:numbe,
+    id:number;
     name: string;
-    //...
+    price:number;
+    image:string;
 }

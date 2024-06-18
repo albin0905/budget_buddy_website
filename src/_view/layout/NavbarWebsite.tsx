@@ -16,17 +16,8 @@ const Navbar = () => {
                         </li>
                         <li className="nav-item">
                             <a className="nav-link active" aria-current="page"
-                               href="http://localhost:3000/categoryDashboard/addCategory">AddCategory</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link active" aria-current="page"
-                               href="http://localhost:3000/categoryDashboard/addExpense">AddExpense</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link active" aria-current="page"
                                href="http://localhost:3000/saveplan/savingPlan">SavingPlan</a>
                         </li>
-
                     </ul>
                 </div>
             </div>

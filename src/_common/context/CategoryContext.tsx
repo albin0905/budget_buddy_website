@@ -1,13 +1,17 @@
+// CategoryProvider.tsx
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { ICategory } from '../models/ICategory';
-import { IExpense } from '../models/IExpense';
-import data from '../data/data.json';
+import {ICategory} from "../models/ICategory";
+import {IPlan} from "../models/IPlan";
+import {IExpense} from "../models/IExpense";
+import data from "../data/data2.json"
 
 interface CategoryContextProps {
     selectedCategory: ICategory[];
     addCategory: (updatedCategories: ICategory[]) => void;
     addExpense: (categoryId: number, newExpense: IExpense) => void;
     getNextIndex: () => number;
+    plans: IPlan[];
+    addPlan: (newPlan: IPlan) => void;
 }
 
 interface CategoryProviderProps {
@@ -18,13 +22,16 @@ const CategoryContext = createContext<CategoryContextProps | undefined>(undefine
 
 export const CategoryProvider: React.FC<CategoryProviderProps> = ({ children }) => {
     const [selectedCategory, setSelectedCategory] = useState<ICategory[]>([]);
+    const [plans, setPlans] = useState<IPlan[]>([]);
 
     useEffect(() => {
-        // Hier wird data.json geladen, wenn selectedCategory leer ist
         if (selectedCategory.length === 0) {
-            setSelectedCategory(data || []);
+            setSelectedCategory(data.categories);
         }
-    }, [selectedCategory]);
+        if (plans.length === 0) {
+            setPlans(data.plans);
+        }
+    }, [selectedCategory, plans]);
 
     const addCategory = (updatedCategories: ICategory[]) => {
         setSelectedCategory(updatedCategories);
@@ -50,8 +57,12 @@ export const CategoryProvider: React.FC<CategoryProviderProps> = ({ children }) 
             : 1;
     };
 
+    const addPlan = (newPlan: IPlan) => {
+        setPlans((prevPlans) => [...prevPlans, newPlan]);
+    };
+
     return (
-        <CategoryContext.Provider value={{ selectedCategory, addCategory, addExpense, getNextIndex }}>
+        <CategoryContext.Provider value={{ selectedCategory, addCategory, addExpense, getNextIndex, plans, addPlan }}>
             {children}
         </CategoryContext.Provider>
     );
