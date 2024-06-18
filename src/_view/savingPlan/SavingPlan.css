@@ -1,0 +1,41 @@
+.plan-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.plan-item {
+    flex: 1 1 1200px; /* Flexbox-Eigenschaften für das Layout */
+    cursor: pointer;
+}
+
+.card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+    padding: 16px;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+.plan-details {
+    padding: 16px 0;
+}
+
+.image-container {
+    width: 100%; /* Bildcontainer auf volle Breite der Karte */
+    max-width: 300px; /* Maximale Breite des Bildes */
+    margin: 0 auto; /* Zentriert das Bild im Container */
+}
+
